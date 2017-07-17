@@ -130,8 +130,9 @@ function getSections(
 * Function to check if the block is an atomic entity block.
 */
 function isAtomicEntityBlock(block: Object): boolean {
-  if (isEmptyString(block.text) ||
-    block.type === 'atomic') {
+  // if (isEmptyString(block.text) ||
+  if ((block.entityRanges.length > 0 && isEmptyString(block.text)) ||
+    (block.type === 'atomic') && block.entityRanges.key) {
     return true;
   }
   return false;
@@ -510,11 +511,11 @@ export function getBlockMarkup(
 ): string {
   const blockHtml = [];
   if (isAtomicEntityBlock(block)) {
-    let atomicRangesKey = (block.entityRanges.hasOwnProperty("0") && block.entityRanges[0].hasOwnProperty("key"))?block.entityRanges[0].key:0;
+    // let atomicRangesKey = (block.entityRanges.hasOwnProperty("0") && block.entityRanges[0].hasOwnProperty("key"))?block.entityRanges[0].key:0;
     blockHtml.push(
       getEntityMarkup(
         entityMap,
-        atomicRangesKey,
+        block.entityRanges[0].key,
         undefined,
         customEntityTransform,
       ));
