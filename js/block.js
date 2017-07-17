@@ -131,7 +131,7 @@ function getSections(
 */
 function isAtomicEntityBlock(block: Object): boolean {
   if ((block.entityRanges.length > 0 && isEmptyString(block.text)) ||
-    block.type === 'atomic') {
+    (block.type === 'atomic' && block.entityRanges[0] && block.entityRanges[0].key)) {
     return true;
   }
   return false;
