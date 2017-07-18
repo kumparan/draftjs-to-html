@@ -5,7 +5,11 @@ import { forEach, isEmptyString } from './common';
 */
 const blockTypesMapping: Object = {
   unstyled: 'p',
-  'align-justify': 'p',
+  'align-justify': 'div',
+  'align-left': 'div',
+  'align-center': 'div',
+  'align-right': 'div',
+  'align-justify': 'div',
   'header-one': 'h1',
   'header-two': 'h2',
   'header-three': 'h3',
