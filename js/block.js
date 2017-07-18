@@ -6,6 +6,10 @@ import { forEach, isEmptyString } from './common';
 const blockTypesMapping: Object = {
   unstyled: 'p',
   'align-justify': 'p',
+  'align-left': 'p',
+  'align-center': 'p',
+  'align-right': 'p',
+  'align-justify': 'p',
   'header-one': 'h1',
   'header-two': 'h2',
   'header-three': 'h3',
